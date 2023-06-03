@@ -1,0 +1,35 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Test workfile XD
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "step 1"
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "step 2"
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "step 3"
+  hello:
+    needs: test
+    runs-on: ubuntu-latest
+    name: hello all
+    steps:
+      - name: hello 1
+        run: echo "hello 1"
+      - name: hello 2
+        run: echo "hello 2"
+      - name: hello 3
+        run: echo "hello 3"
