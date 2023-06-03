@@ -22,8 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "step 3"
-  hello:
-    needs: test
+  clone:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "step 4"
+  close:
+    needs: [setup, build, test]
     runs-on: ubuntu-latest
     name: hello all
     steps:
