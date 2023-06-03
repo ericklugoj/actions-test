@@ -24,3 +24,15 @@ jobs:
             cd delete
             touch test.txt
             echo "probando" >> test.txt
+
+      - name: update repository server-2
+        uses: cross-the-world/ssh-pipeline@master
+        with:
+          host: ec2-18-191-237-167.us-east-2.compute.amazonaws.com
+          user: ubuntu
+          key: ${{secrets.EC2_EXAMPLE_KEY_2}}
+          connect_timeout: 10s
+          script: |
+            cd delete
+            touch test.txt
+            echo "probando" >> test.txt
